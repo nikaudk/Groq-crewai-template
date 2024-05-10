@@ -20,5 +20,6 @@ class CustomAgents:
             goal=f"Develop detailed, actionable insights for {role}.",
             verbose=True,
             llm=self.llm,
-            max_rpm=29,
+            max_rpm=3,
+            max_Iter=3
         )
