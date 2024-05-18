@@ -4,8 +4,11 @@ from agents import CustomAgents
 from tasks import CustomTasks
 from google.colab import userdata
 
+#### Run in colab cells
+# import os
+# from google.colab import userdata
 # Set up environment variables
-os.environ["GROQ_API_KEY"] = userdata.get('GROQ_API_KEY')
+#os.environ["GROQ_API_KEY"] = userdata.get('GROQ_API_KEY') #userdata.get('GROQ_API')
 
 class BusinessAutomationCrew:
     def __init__(self, business_type):
