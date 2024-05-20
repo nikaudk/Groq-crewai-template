@@ -4,7 +4,7 @@ class CustomTasks:
     def __init__(self):
         pass
 
-    def create_task(self, agent, business_type, task_type):
+    def create_task(self, agent, campaign_setting, campaign_theme, characters, task_type):
         task_descriptions = {
             "market_analysis": (
                 f"Conduct an in-depth market analysis for a {business_type}, focusing on understanding market size, "

@@ -10,22 +10,33 @@ from google.colab import userdata
 # Set up environment variables
 #os.environ["GROQ_API_KEY"] = userdata.get('GROQ_API_KEY') #userdata.get('GROQ_API')
 
-class BusinessAutomationCrew:
-    def __init__(self, business_type):
-        self.business_type = business_type
+class DnDAdventureCrew:
+    def __init__(self, campaign_setting, campaign_theme, characters):
+        self.campaign_setting = campaign_setting
+        self.campaign_theme = campaign_theme
+        self.characters = characters
+        
         self.agents = CustomAgents()
         self.tasks = CustomTasks()
 
     def run(self):
         agents = {
-            "market_analyst": self.agents.create_agent("Market Analyst"),
-            "marketing_strategist": self.agents.create_agent("Marketing Strategist")
+            "leadwriter": self.agents.create_agent("Lead Dnd Writer"),
+            "characterspecialist": self.agents.create_agent("Character Specialist"),
+            "npcspecialist": self.agents.create_agent("NPC Specialist"),
+            "encounterdesigner": self.agents.create_agent("Encounter Designer"),
+            "worldbuilder": self.agents.create_agent("World Builder"),
+            "mainquestdesigner": self.agents.create_agent("Main quest Designer"),
+            "sidequestdesigner": self.agents.create_agent("Sidequest Designer")
         }
 
         tasks = {
-            "market_analysis": self.tasks.create_task(agents["market_analyst"], self.business_type, "market_analysis"),
-            "marketing_strategy": self.tasks.create_task(agents["marketing_strategist"], self.business_type, "marketing_strategy"),
-            "integration": self.tasks.create_task(agents["marketing_strategist"], self.business_type, "integration")
+            "world_building": self.tasks.create_task(agents["world_builder"], self.campaign_setting, self.campaign_theme, self.characters, "world_building"),
+            "characterintegration": self.tasks.create_task(agents["characterspecialist"], self.campaign_setting, self.campaign_theme, self.characters,"characterintegration")
+            "encounterdesigning": self.tasks.create_task(agents["encounterdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "encounterdesigning"),
+            "npcdevelopment": self.tasks.create_task(agents["npcspecialist"], self.campaign_setting, self.campaign_theme, self.characters, "npcdevelopment"),
+            "side_quest_design": self.tasks.create_task(agents["sidequestdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "side_quest_design")
+            "main_quest_design": self.tasks.create_task(agents["mainquestdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "main_quest_design")
         }
 
         crew = Crew(
@@ -39,12 +50,14 @@ class BusinessAutomationCrew:
 if __name__ == "__main__":
     print("Welcome to the Business Automation Crew Setup")
     print("------------------------------------------------")
-    business_type = input("What business do you seek to build today? ").strip()
-
-    automation_crew = BusinessAutomationCrew(business_type)
-    business_plan = automation_crew.run()
+    campaign_setting = input("Provide a brief overview of the campaign setting, including the world, its history, and any relevant factions or organizations.").strip()
+    campaign_theme = input("Specify the desired tone and themes for the adventure (e.g., light-hearted, dark and gritty, humorous, etc.)").strip()
+    ccharacters = input("hare the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses.").strip()
+    
+    automation_crew = DnDAdventureCrew(campaign_setting, campaign_theme, characters)
+    dnd_adventur = automation_crew.run()
 
     print("\n\n########################")
     print("## Here are the results of your business automation project:")
     print("########################\n")
-    print(business_plan)
+    print(dnd_adventur)
