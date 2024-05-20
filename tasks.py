@@ -41,10 +41,10 @@ class CustomTasks:
                 f"Specify the desired tone and themes for the adventure (e.g., light-hearted, dark and gritty, humorous, etc.)."
                 f"Share bits of the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses.
             ),
-            "main_quest_design" (
+            "main_quest_design": (
                 f"Based on {campaign_setting}, {campaign_theme} and {characters} wirte a storyline for the main quest.
             ),
-            "encounterdesigning" (
+            "encounterdesigning": (
                 f"You have the following information avaliable about the campaign: {campaign_setting}, {campaign_theme} and {characters}. Create 3 to 5 encounters that fit the background information."
             ),
             "campaignwriting": (
