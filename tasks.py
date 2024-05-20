@@ -3,42 +3,52 @@ from crewai import Task
 class CustomTasks:
     def __init__(self):
         pass
-
+ 
     def create_task(self, agent, campaign_setting, campaign_theme, characters, task_type):
         task_descriptions = {
-            "market_analysis": (
-                f"Conduct an in-depth market analysis for a {business_type}, focusing on understanding market size, "
-                f"identifying current trends, analyzing competitor strategies, and evaluating customer demographics. "
-                f"Assess the regulatory environment and potential barriers to entry that might affect the launch and "
-                f"sustainability of the business."
+            "world_building": (
+                f"Conduct an in-depth analysis of: {campaign_setting}." 
+                f"Gather information on player count, levels and classes from {characters}."
+                f"Review the text: {campaign_theme}, gather information about the theme of the adventure"
+                f"Provide a brief overview of the campaign setting, including the world, its history, and any relevant factions or organizations."
+                f"Specify the desired tone and themes for the adventure (e.g., light-hearted, dark and gritty, humorous, etc.)."
+                f"Share bits of the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses."
             ),
-            "marketing_strategy": (
-                f"Develop a detailed marketing strategy for a {business_type} using the insights gained from the "
-                f"market analysis. This strategy should outline targeted marketing channels, customer engagement plans, "
-                f"brand positioning, and promotional tactics. Include a budget forecast and expected impacts on market penetration."
+            "encounterdesigning": (
+                f"Specify the desired difficulty level for combat encounters, including the number and types of enemies, terrain, and environmental hazards."
+                f"The encounters need to roughly match the abilities of {characters}. Encounters must be faily challenging"
             ),
-            "integration": (
-                f"Create a comprehensive 30-day launch plan for a {business_type} that delineates daily activities, "
-                f"strategic objectives, and operational requirements. Ensure the plan includes a timeline for each phase "
-                f"of the launch, identifies key milestones, and outlines resource allocation to establish a roadmap for "
-                f"a successful market entry."
+            "npcdevelopment": (
+                f"Introduce key NPCs, factions, and organizations that will feature prominently in the adventure."
+            ),
+            "side_quest_design": (
+                f"Suggest potential side quests or branching storylines to add depth and variety to the adventure."
+                f"Provide hints or suggestions for unexpected twists or surprises to keep the players engaged."
+                f"Provide guidelines for puzzle design, exploration opportunities, and skill challenges."
+            ),
+            "main_quest_design": (
+                f"Offer a rough outline of the main quest or storyline, including key plot points, villains, and MacGuffins."
+                f"Provide hints or suggestions for unexpected twists or surprises to keep the players engaged."
+            ),
+            "campaignwriting": (
+                f"This is the final task. You are responsible for gathering all information from the other agents in order to write the full compaign based on {campaign_settings}"
             )
         }
 
         expected_outputs = {
-            "market_analysis": (
-                f"Detailed report on the market conditions for a {business_type}, including data on market size, growth potential, "
-                f"key competitors, and customer profiles. The report should also provide actionable insights and strategic recommendations."
+            "world_building": (
+                f"Based on {campaign_setting}, {campaign_theme} and {characters}, provide a brief overview of the campaign setting, including the world, its history, and any relevant factions or organizations."
+                f"Specify the desired tone and themes for the adventure (e.g., light-hearted, dark and gritty, humorous, etc.)."
+                f"Share bits of the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses.
             ),
-            "marketing_strategy": (
-                f"Comprehensive marketing playbook for a {business_type}, detailing all marketing efforts, channel strategies, "
-                f"and communication plans along with a schedule and projected outcomes. The playbook should align with the business's "
-                f"overall objectives and customer acquisition targets."
+            "main_quest_design" (
+                f"Based on {campaign_setting}, {campaign_theme} and {characters} wirte a storyline for the main quest.
             ),
-            "integration": (
-                f"A fully articulated 30-day launch plan for a {business_type} with clear action items, responsibilities, "
-                f"and checkpoints. The plan should cover all necessary preparations for the business to commence operations "
-                f"smoothly and achieve early traction."
+            "encounterdesigning" (
+                f"You have the following information avaliable about the campaign: {campaign_setting}, {campaign_theme} and {characters}. Create 3 to 5 encounters that fit the background information."
+            ),
+            "campaignwriting": (
+                f"Write the full DnD adventure from {campaing_settings} and {campaign_theme} with main quest and side quest."
             )
         }
 

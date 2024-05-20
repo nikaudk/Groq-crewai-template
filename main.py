@@ -32,11 +32,12 @@ class DnDAdventureCrew:
 
         tasks = {
             "world_building": self.tasks.create_task(agents["world_builder"], self.campaign_setting, self.campaign_theme, self.characters, "world_building"),
-            "characterintegration": self.tasks.create_task(agents["characterspecialist"], self.campaign_setting, self.campaign_theme, self.characters,"characterintegration")
+            "characterintegration": self.tasks.create_task(agents["characterspecialist"], self.campaign_setting, self.campaign_theme, self.characters,"characterintegration"),
             "encounterdesigning": self.tasks.create_task(agents["encounterdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "encounterdesigning"),
             "npcdevelopment": self.tasks.create_task(agents["npcspecialist"], self.campaign_setting, self.campaign_theme, self.characters, "npcdevelopment"),
-            "side_quest_design": self.tasks.create_task(agents["sidequestdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "side_quest_design")
-            "main_quest_design": self.tasks.create_task(agents["mainquestdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "main_quest_design")
+            "side_quest_design": self.tasks.create_task(agents["sidequestdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "side_quest_design"),
+            "main_quest_design": self.tasks.create_task(agents["mainquestdesigner"], self.campaign_setting, self.campaign_theme, self.characters, "main_quest_design"),
+            "campaignwriting": self.tasks.create_task(agents["leadwriter"], self.campaign_setting, self.campaign_theme, self.characters, "campaignwriting")
         }
 
         crew = Crew(
@@ -52,7 +53,7 @@ if __name__ == "__main__":
     print("------------------------------------------------")
     campaign_setting = input("Provide a brief overview of the campaign setting, including the world, its history, and any relevant factions or organizations.").strip()
     campaign_theme = input("Specify the desired tone and themes for the adventure (e.g., light-hearted, dark and gritty, humorous, etc.)").strip()
-    ccharacters = input("hare the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses.").strip()
+    characters = input("hare the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses.").strip()
     
     automation_crew = DnDAdventureCrew(campaign_setting, campaign_theme, characters)
     dnd_adventur = automation_crew.run()
