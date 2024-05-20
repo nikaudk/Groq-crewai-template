@@ -31,7 +31,7 @@ class CustomTasks:
                 f"Provide hints or suggestions for unexpected twists or surprises to keep the players engaged."
             ),
             "campaignwriting": (
-                f"This is the final task. You are responsible for gathering all information from the other agents in order to write the full compaign based on {campaign_settings}"
+                f"This is the final task. You are responsible for gathering all information from the other agents in order to write the full compaign based on {campaign_setting}"
             )
         }
 
@@ -39,16 +39,16 @@ class CustomTasks:
             "world_building": (
                 f"Based on {campaign_setting}, {campaign_theme} and {characters}, provide a brief overview of the campaign setting, including the world, its history, and any relevant factions or organizations."
                 f"Specify the desired tone and themes for the adventure (e.g., light-hearted, dark and gritty, humorous, etc.)."
-                f"Share bits of the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses.
+                f"Share bits of the players' character concepts, backstories, and personalities to help the crew tailor the adventure to their strengths and weaknesses."
             ),
             "main_quest_design": (
-                f"Based on {campaign_setting}, {campaign_theme} and {characters} wirte a storyline for the main quest.
+                f"Based on {campaign_setting}, {campaign_theme} and {characters} wirte a storyline for the main quest."
             ),
             "encounterdesigning": (
                 f"You have the following information avaliable about the campaign: {campaign_setting}, {campaign_theme} and {characters}. Create 3 to 5 encounters that fit the background information."
             ),
             "campaignwriting": (
-                f"Write the full DnD adventure from {campaing_settings} and {campaign_theme} with main quest and side quest."
+                f"Write the full DnD adventure from {campaign_setting} and {campaign_theme} with main quest and side quest."
             )
         }
 
